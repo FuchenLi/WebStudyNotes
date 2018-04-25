@@ -1,0 +1,35 @@
+body {
+    position: absolute;
+    align-self: center;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    left: 20%
+}
+
+.img {
+    width: 120px;
+    height: 80px;
+}
+
+#myCanvas {
+    background-color: rgb(255, 255, 255);
+}
+
+#div1 {
+    width: 30%;
+    height: 40%;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    background: rgb(182, 168, 168);
+}
+
+#div2 {
+    width: 30%;
+    height: 40%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background: rgb(182, 168, 168);
+}
