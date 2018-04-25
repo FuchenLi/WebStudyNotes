@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="StyleSheet" href="../css/video.css" />
+    <title>Document</title>
+
+    <script>
+        function set() {
+            var s = document.getElementById("div1");
+            console.log(s.height + "," + s.width + '/');
+
+            s.height = window.innerHeight;
+            s.width = window.innerWidth * 0.7;
+            console.log(s.height + "," + s.width + '//');
+        }
+    </script>
+</head>
+
+<body onload="set()">
+    <div id="div1">
+        <div id="video_box">
+            <video id="video1" width="320" height="240">
+                <source src="../source/movie.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div id="control_bar">
+            <p>
+                <span id="play" onclick="play_pause()">播放/暂停</span>
+                <span id="size" onclick="larger_smaller()">O</span>
+                <script>
+                    var x = document.getElementById("video1");
+
+                    function play_pause() {
+                        if (x.paused) {
+                            x.play();
+                        } else {
+                            x.pause();
+                        }
+                    }
+
+                    function larger_smaller() {
+                        var size = document.getElementById("size");
+                        if (size.innerText == 'O') {
+                            size.innerHTML = '#';
+                            x.width = 320;
+                        } else {
+                            size.innerHTML = 'O';
+                            x.width = 240;
+                        }
+
+                    }
+                </script>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
