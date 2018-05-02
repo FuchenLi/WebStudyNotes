@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function click_action() {
+            //console.log('点击事件');
+            var c = document.getElementById("color");
+            var p1 = document.getElementById("color_display");
+            //console.log(c.value + '颜色获取');
+            p1.innerHTML = c.value;
+
+            var d = document.getElementById('date');
+            var p2 = document.getElementById('date_display');
+
+            p2.innerHTML = d.value;
+
+            var t = document.getElementById('time');
+            var p3 = document.getElementById('time_display');
+
+            p3.innerHTML = t.value;
+
+            var e = document.getElementById('email');
+            var p4 = document.getElementById('email_display');
+
+            p4.innerHTML = e.value;
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" method="POST">
+        <input type="color" id="color"/>
+        <input type="date" id = "date" value="2000-01-01"/>
+        <input type="time" id = "time" value="00:00:00"/>
+        <input type="email" id="email" value="example@example.com">
+        <input type="button" value="click" id="find" onclick="click_action()">
+    </form>
+    <p id="color_display"> 此处</p>
+    <p id="date_display"> 此处</p>
+    <p id = "time_display">此处</p>
+    <p id = "email_display">此处</p>
+
+
+</body>
+
+</html>
