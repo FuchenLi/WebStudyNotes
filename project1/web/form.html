@@ -33,13 +33,20 @@
 </head>
 
 <body>
-    <form action="#" method="POST">
+    <form action="#" method="POST" id ="form1">
         <input type="color" id="color"/>
         <input type="date" id = "date" value="2000-01-01"/>
         <input type="time" id = "time" value="00:00:00"/>
         <input type="email" id="email" value="example@example.com">
         <input type="button" value="click" id="find" onclick="click_action()">
+        <!-- formaction 覆盖 form 提交的 目标  可以用于 一个表单 多个提交 按钮-->
+        <input type="submit" value="sub" id="submit" formaction="video.html"/>
     </form>
+
+    <!-- 虽然不在 form1 中  但 仍然 是 form1 的内容 -->
+    <!-- 测试 属性 autofocus -->
+    <input type="text" value="不在form1中仍是form1内容" id="txt" form = 'form1' autofocus/> 
+    
     <p id="color_display"> 此处</p>
     <p id="date_display"> 此处</p>
     <p id = "time_display">此处</p>
