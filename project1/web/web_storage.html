@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value='click' id='click1' onclick="click_count()" />
+    <input type="button" value='clear' id='click2' onclick="click_clear()" />
+
+
+    <p id="p1"></p>
+    <script>
+        function click_count() {
+            if (typeof (Storage) !== "undefined") {
+                console.log("标记1"); ////////////
+                if (localStorage.clickCount) {
+                    console.log("标记2" + localStorage.clickCount); //////////////
+                    localStorage.clickCount = Number(localStorage.clickCount) + 1;
+                } else {
+                    localStorage.clickCount = 1;
+                }
+            } else {
+                document.getElementById("p1").innerHTML = '浏览器不支持web storage';
+            }
+
+            document.getElementById('p1').innerHTML = "点击了" + localStorage.clickCount + "次";
+        }
+
+        function click_clear() {
+            if (typeof (Storage) !== "undefined") {
+                localStorage.clickCount = 0;
+                document.getElementById('p1').innerHTML = "点击了" + localStorage.clickCount + "次";
+            } else {
+                document.write("浏览器不支持web storage")
+            }
+        }
+    </script>
+</body>
+
+</html>
