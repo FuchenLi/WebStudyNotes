@@ -1,0 +1,39 @@
+没有定型的样式  仅仅用于 更清晰的划分页面作用 
+
+figure 标签规定独立的流内容（图像、图表、照片、代码等等）
+figcaption：定义 <figure> 元素的标题 或者它的注释 
+aside  定义页面主区域内容之外的内容（比如侧边栏）
+
+article
+section
+nav
+header
+footer
+引用知乎：
+
+给你举个形象的例子。你在 word里打一篇长文章，这篇文章其实就是一篇article。word每一页都有页眉和页脚，这就是header和footer。
+所以你发现一个文章被word分了好多页，所以他可以有若干个header和footer。再说说nav，你写文章很长划分了好多小标题，
+左侧出现的那个文章菜单导航路径就可以理解为nav；最后说下p和section，你写了这么一篇文章肯定分了好多自然段，这些自然段就是p，
+而整篇文章可能按照其大义分了段（又叫章节，一个章节可能有多个自然段组成）这时候这个分出来的大的段落就叫section。
+
+作者：Mapk Volkov
+链接：https://www.zhihu.com/question/20308005/answer/87243639
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+新元素的浏览器兼容问题：
+
+为了让这些块及元素在所有版本的浏览器中生效，你需要在样式表文件中设置一下属性 (以下样式代码可以让旧版本浏览器支持本章介绍的块级元素):
+header, section, footer, aside, nav, article, figure
+{ 
+    display: block; 
+}
+
+E8 及更早IE版本无法在这些元素中渲染CSS效果，
+以至于你不能使用 <header>, <section>, <footer>, <aside>, <nav>, <article>, <figure>, 
+或者其他的HTML5 elements.可以使用HTML5 Shiv来解决这个问题：
+    <!--[if lt IE 9]>  
+    <script src="html5shiv.js"></script>  
+    <![endif]-->  
