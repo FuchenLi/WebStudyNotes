@@ -1,0 +1,13 @@
+.radius-border {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid red;
+    border-radius: 20px;
+    width: 150px;
+    box-shadow: 10px 10px 5px #000;
+    /* 3个值分别为 水平位移 垂直位移 模糊半径  阴影颜色 */
+}
+
+.img-border {
+    border-image:url(../../project1/source/p1.png) 30 30 round;
+}
