@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    计时：<p id = "display"></p>
+    <input type="button" value = '开始计时' id="start" onclick="startWorker()" />
+    <input type="button" value = '结束计时' id="stop" onclick="stopWorker()"/>
+    
+
+    <script>
+        var w;
+        function startWorker(){
+            var url = "worker.js"
+            if(typeof(Worker)!== "undefined"){
+                if(typeof(w) == "undefined"){
+                   
+                    w = new Worker(url);
+                    w.onmessage = function(e){
+                     
+                        document.getElementById("display").innerHTML = e.data;
+                    }
+                }
+            }else{
+                document.write("您的浏览器不支持web workers");
+            }
+        }
+
+        function stopWorker(){
+            w.terminate();
+            w = undefined;
+        }
+    </script>
+</body>
+</html>
