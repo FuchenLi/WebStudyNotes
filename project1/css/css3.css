@@ -1,0 +1,25 @@
+.radius-border {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid red;
+    border-radius: 20px;
+    width: 150px;
+    box-shadow: 10px 10px 5px #000;
+    /* 3个值分别为 水平位移 垂直位移 模糊半径  阴影颜色 */
+}
+.radius-border2 {
+    text-align: center;
+    vertical-align: center;
+    margin: 10px;
+    border: 1px solid red;
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+    /* 3个值分别为 水平位移 垂直位移 模糊半径  阴影颜色 */
+}
+.imgbdr {
+   border:15px solid transparent;
+   width:250px;
+   border-image: url(../source/p1.png) 30 30 30 30 round;
+   /* 30 30 30 30 指 切割图片的 # 形线 的上下左右 四根线 距离 图片的 边框 上下左右 的距离   类似于切豆腐*/
+}
