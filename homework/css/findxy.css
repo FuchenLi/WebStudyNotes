@@ -1,0 +1,17 @@
+#select_line  {
+    position: absolute;
+    left:810px;
+}
+
+#dis  {
+    position: absolute;
+    left:810px;
+    top:50px;
+}
+
+.img_area  {
+    position: absolute;
+    top: -70px;
+    left:0;
+
+}
