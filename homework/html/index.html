@@ -162,7 +162,7 @@
             <li data-coords="26.7,42.0"></li>
             <li data-coords="27.7,43.0" data-dir="S"></li>
             <li data-coords="33.0,43.0">中胜</li>
-            <li data-coords="36.0,43.0">小行</li>
+            <li data-coords="36.0,43.0" data-labelPos="n">小行</li>
             <li data-coords="39.2,43.0"></li>
         </ul>
         <ul data-color="#a4bcb2" data-label="S1线 南京南站-禄口机场">
@@ -211,11 +211,19 @@
         <img src="../source/subway_logo.JPG" alt="南京地铁logo" class="sub-logo">
     </a>
     <div id="legend"></div>
-    <script src="../js/subway.js"></script>
+    <div class="operation_bar">
+        <button type="button" class="enlarge-button" onclick="enlargeCan()">+</button>
+        <button type="button" class="narrow-button" onclick="narrowCan()">-</button>
+        <script>
+           
+        </script>
+    </div>
     <script type="text/javascript">
         $(".subway-map").subwayMap({
             debug: true
         });
+    </script>
+    <script src="../js/subway.js">
     </script>
 </body>
 
