@@ -210,7 +210,46 @@
         <!-- 南京地铁logo 与 南京地铁官网 链接 -->
         <img src="../source/subway_logo.JPG" alt="南京地铁logo" class="sub-logo">
     </a>
-    <div id="legend"></div>
+    <div id="legend">
+    <script>
+            var isMouseDown = false;
+            var pointX, pointY;
+            $(document).ready(function () {
+                $("#legend").mousedown(function (event) {
+                    //记录鼠标位置
+                    var e = event || window.event;
+                    isMouseDown = true;
+                    pointX = e.pageX;
+                    pointY = e.pageY;
+                });
+                $("#legend").mouseup(function(){
+                    isMouseDown = false;
+                });
+                $("#legend").mousemove(function (event) {
+                    if (!isMouseDown)
+                        return false;
+                    var e = event || window.event;
+                    var px, py;
+                    var moveX, moveY;
+                    px = e.pageX;
+                    py = e.pageY;
+                    moveX = px - pointX;
+                    moveY = py - pointY;
+                    console.log("鼠标位移  "+moveX+","+moveY);
+                    var divX = $(this).offset().left;
+                    var divY = parseInt($(this).css("top").split("px")[0]);
+                    console.log("divx,divy:" + divX + "," + divY);
+                    
+                    $(this).css({
+                        "left": (divX + moveX) + "px",
+                        "top": (divY + moveY) + "px"
+                    });
+                });
+            });
+
+
+        </script>
+    </div>
     <div class="operation_bar">
         <button type="button" class="enlarge-button" onclick="enlargeCan()">+</button>
         <button type="button" class="narrow-button" onclick="narrowCan()">-</button>
