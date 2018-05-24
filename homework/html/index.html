@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.1.12.4.min.js"></script>
     <script type="text/javascript" src="../js/jquery.subwayMap-0.5.0.js"></script>
     <link rel="stylesheet" href="../css/subway.css">
     <title>南京地铁线路图</title>
 </head>
 
-<body>
+<body onload="setSub()">
+    <a href="http://www.njmetro.com.cn/" style="z-index: 5000;">
+        <!-- 南京地铁logo 与 南京地铁官网 链接 -->
+        <img src="../source/subway_logo.JPG" alt="南京地铁logo" class="sub-logo">
+    </a>
     <div class="subway-map" data-columns="79" data-rows="72" data-cellSize="10" data-legendId="legend" data-textClass="text"
         data-gridNumbers="true" data-grid="false" data-lineWidth="4">
         <ul data-color="#ecd05f" data-label="1号线 迈皋桥-中国药科大学">
@@ -206,63 +210,34 @@
         </ul>
 
     </div>
-    <a href="http://www.njmetro.com.cn/">
-        <!-- 南京地铁logo 与 南京地铁官网 链接 -->
-        <img src="../source/subway_logo.JPG" alt="南京地铁logo" class="sub-logo">
-    </a>
-    <div id="legend">
-    <script>
-            var isMouseDown = false;
-            var pointX, pointY;
-            $(document).ready(function () {
-                $("#legend").mousedown(function (event) {
-                    //记录鼠标位置
-                    var e = event || window.event;
-                    isMouseDown = true;
-                    pointX = e.pageX;
-                    pointY = e.pageY;
-                });
-                $("#legend").mouseup(function(){
-                    isMouseDown = false;
-                });
-                $("#legend").mousemove(function (event) {
-                    if (!isMouseDown)
-                        return false;
-                    var e = event || window.event;
-                    var px, py;
-                    var moveX, moveY;
-                    px = e.pageX;
-                    py = e.pageY;
-                    moveX = px - pointX;
-                    moveY = py - pointY;
-                    console.log("鼠标位移  "+moveX+","+moveY);
-                    var divX = $(this).offset().left;
-                    var divY = parseInt($(this).css("top").split("px")[0]);
-                    console.log("divx,divy:" + divX + "," + divY);
-                    
-                    $(this).css({
-                        "left": (divX + moveX) + "px",
-                        "top": (divY + moveY) + "px"
-                    });
-                });
-            });
+    <div class="move-div" onselectstart="return false;">
+        <script src="../js/movedivMove.js"></script>
+        <button type="button" id="up"><img src="../source/up.png" alt="上" class="button-img"></button>
+        <button type="button" id="down"><img src="../source/down.png" alt="下" class="button-img"></button>
+        <button type="button" id="left"><img src="../source/left.png" alt="左" class="button-img"></button>
+        <button type="button" id="right"><img src="../source/right.png" alt="右" class="button-img"></button>
+    </div>
+    <script src="../js/canvasMove.js"></script>
+    <script src="../js/spanMouseover.js"></script>
 
-
-        </script>
+    <div class="box">
+        <!-- 蒙版div -->
+    </div>
+    <div id="legend" onselectstart="return false;">
+        <script src="../js/moveLegend.js"></script>
     </div>
     <div class="operation_bar">
+        <button type="button" class="searchdiv-hide" onclick="canSearch()">»</button>
         <button type="button" class="enlarge-button" onclick="enlargeCan()">+</button>
         <button type="button" class="narrow-button" onclick="narrowCan()">-</button>
-        <script>
-           
-        </script>
     </div>
+
     <script type="text/javascript">
         $(".subway-map").subwayMap({
             debug: true
         });
     </script>
-    <script src="../js/subway.js">
+    <script src="../js/operationBar.js">
     </script>
 </body>
 
